@@ -1,21 +1,21 @@
 package com.example.jcompose
 
+import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.Composable
-import androidx.compose.state
-import androidx.compose.unaryPlus
-import androidx.ui.core.Text
-import androidx.ui.core.dp
-import androidx.ui.core.setContent
+import androidx.compose.*
+import androidx.ui.core.*
+import androidx.ui.foundation.shape.DrawShape
+import androidx.ui.foundation.shape.RectangleShape
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
-import androidx.ui.material.BottomAppBar
-import androidx.ui.material.FloatingActionButton
-import androidx.ui.material.MaterialTheme
-import androidx.ui.material.TopAppBar
+import androidx.ui.material.*
 import androidx.ui.text.TextStyle
+import com.example.jcompose.model.Book
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,6 +51,14 @@ class MainActivity : AppCompatActivity() {
                             Text(
                                 "Counter will start here ${counter.value}"
                             )
+
+                            Button(
+                                text = "Book List",
+                                style = ContainedButtonStyle(),
+                                onClick = {
+                                    startActivity(Intent(this@MainActivity,BookActivity::class.java ))
+                                }
+                            )
                         }
                     }
                 }
@@ -81,13 +89,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 inflexible {
                     BottomAppBar<MenuItem>(
-                        color = Color.Black
+                        color = Color.Cyan
                     )
                 }
             }
         }
     }
-
 
 }
 
